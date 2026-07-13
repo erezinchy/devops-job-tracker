@@ -11,8 +11,8 @@ Data aggregation is powered by [mluggy/techmap](https://github.com/mluggy/techma
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
+   git clone https://github.com/erezinchy/devops-job-tracker.git
+   cd devops-job-tracker
    ```
 
 2. **Install dependencies:**
