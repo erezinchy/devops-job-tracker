@@ -1,0 +1,13 @@
+# Exclude local data
+*.csv
+
+# Python environment
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE/System
+.DS_Store
+.idea/
+.vscode/
