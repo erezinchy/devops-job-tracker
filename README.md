@@ -48,3 +48,7 @@ It automatically handles existing files, keeping your list up-to-date with new j
 ## License
 
 Feel free to use and modify this script for your own job search.
+
+## Note ## 
+
+The default data source (techmap) covers Israeli tech positions. To use this for other markets, swap CSV_URL in config.py with any public job data CSV.
