@@ -1,4 +1,4 @@
-# DevOps Job Tracker
+# Job Tracker
 
 A lightweight Python script to fetch, filter, and track relevant job postings. This project helps you stay organized by cleaning up raw job data from public sources and maintaining a curated list of opportunities that match your specific criteria.
 
@@ -11,8 +11,8 @@ Data aggregation is powered by [mluggy/techmap](https://github.com/mluggy/techma
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/erezinchy/devops-job-tracker.git
-   cd devops-job-tracker
+   git clone https://github.com/erezinchy/job-tracker.git
+   cd job-tracker
    ```
 
 2. **Install dependencies:**
@@ -39,11 +39,11 @@ Data aggregation is powered by [mluggy/techmap](https://github.com/mluggy/techma
 
 ## Usage
 
-The script will fetch the latest data, apply your filters, and save the results to the file defined in `config.py` (default: `my_devops_jobs.csv`).
+The script will fetch the latest data, apply your filters, and save the results to the file defined in `config.py` (default: `my_jobs.csv`).
 
 It automatically handles existing files, keeping your list up-to-date with new jobs while removing any positions that no longer meet your updated criteria.
 
-> **Note:** If you have `my_devops_jobs.csv` open in Excel (or another spreadsheet app), close it before rerunning the script. The file gets locked while open, and the script will fail to save its updates.
+> **Note:** If you have `my_jobs.csv` open in Excel (or another spreadsheet app), close it before rerunning the script. The file gets locked while open, and the script will fail to save its updates.
 
 ## License
 

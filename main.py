@@ -12,11 +12,21 @@ def passes_exclusions(df):
     """Returns a boolean mask of rows that do NOT match any exclusion rule.
     Shared by both the remote filtering step and the local purge step,
     so the two stay in sync automatically."""
-    level_ok = ~df['level'].str.contains('|'.join(EXCLUDE_LEVELS), case=False, na=False)
-    title_ok = ~df['title'].str.contains('|'.join(EXCLUDE_KEYWORDS), case=False, na=False)
-    company_ok = ~df['company'].str.contains('|'.join(EXCLUDE_COMPANIES), case=False, na=False)
-    url_ok = ~df['url'].str.contains('|'.join(EXCLUDE_URL_KEYWORDS), case=False, na=False)
-    return level_ok & title_ok & company_ok & url_ok
+    masks = [pd.Series([True] * len(df), index=df.index)]
+
+    if EXCLUDE_LEVELS:
+        masks.append(~df['level'].str.contains('|'.join(EXCLUDE_LEVELS), case=False, na=False))
+    if EXCLUDE_KEYWORDS:
+        masks.append(~df['title'].str.contains('|'.join(EXCLUDE_KEYWORDS), case=False, na=False))
+    if EXCLUDE_COMPANIES:
+        masks.append(~df['company'].str.contains('|'.join(EXCLUDE_COMPANIES), case=False, na=False))
+    if EXCLUDE_URL_KEYWORDS:
+        masks.append(~df['url'].str.contains('|'.join(EXCLUDE_URL_KEYWORDS), case=False, na=False))
+
+    result = masks[0]
+    for mask in masks[1:]:
+        result = result & mask
+    return result
 
 
 def update_job_tracker():
